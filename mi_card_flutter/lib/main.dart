@@ -12,32 +12,53 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.teal,
         body: SafeArea(
-            child: Column(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 100,
-                  margin: EdgeInsets.only(left: 20),
-                  padding: EdgeInsets.all(20),
-                  color: Colors.blueGrey[100],
-                  child: Text("Container 1"),
+                  width: 10,
+                  //color: Colors.blueGrey[100],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 50.0,
+                      backgroundImage: AssetImage('images/hiroid.jpg'),
+                    ),
+                    Text(
+                      'HIROKI',
+                      style: TextStyle(
+                        fontFamily: 'Pacifico',
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                    Text(
+                      "FLUTTER BEGINNER",
+                      style: TextStyle(
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20,
+                        color: Colors.teal.shade100,
+                        letterSpacing: 2,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      color: Colors.blueGrey[100],
+                      child: Text("Container 1"),
+                    ),
+                  ],
                 ),
                 Container(
-                  height: 100,
-                  margin: EdgeInsets.only(left: 20),
-                  padding: EdgeInsets.all(20),
-                  color: Colors.blueGrey[100],
-                  child: Text("Container 1"),
-                ),
-                Container(
-                  height: 100,
-                  margin: EdgeInsets.only(left: 20),
-                  padding: EdgeInsets.all(20),
-                  color: Colors.blueGrey[100],
-                  child: Text("Container 1"),
+                  width: 10,
+                  //color: Colors.blueGrey[100],
                 ),
               ],
             ),
