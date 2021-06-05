@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircleAvatar(
-                  radius: 50.0,
+                  radius: 45.0,
                   backgroundImage: AssetImage('images/hiroid.jpg'),
                 ),
                 Text(
@@ -40,53 +40,55 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.phone,
-                        color: Colors.teal,
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        '+81 123 456 789',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: Colors.teal.shade500
-                        ),
-                      ),
-                    ],
+                SizedBox(
+                  child: Divider(
+                    height: 20,
+                    indent: 50,
+                    endIndent: 50,
+                    thickness: 1,
+                    color: Colors.white,
                   ),
                 ),
-                Container(
-                  color: Colors.white,
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.email,
+                Card(
+                    color: Colors.white,
+                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.phone,
                         color: Colors.teal,
+                        size: 40,
+
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        'example@example.com',
+                      title: Text(
+                        '+81 123 456 789',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
                             color: Colors.teal.shade500
                         ),
                       ),
-                    ],
-                  ),
+                      subtitle: Text(
+                        'Test text'
+                      ),
+                    )
+                ),
+                Card(
+                  color: Colors.white,
+                  margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Colors.teal,
+                    ),
+                    title: Text(
+                      'example@example.com',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.teal.shade500
+                      ),
+                    ),
+                  )
                 ),
               ],
             ),
@@ -95,4 +97,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
