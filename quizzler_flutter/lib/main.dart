@@ -50,7 +50,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.getQuestionText(questionNumber),
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -75,7 +75,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked true.
-                if(quizBrain.getQuestionAnswer(questionNumber) == true){
+                if(quizBrain.getQuestionAnswer() == true){
                   print('got it right');
                 } else {
                   print('got wrong');
@@ -87,7 +87,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.green,
                     ),
                   );
-                  questionNumber += 1;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
@@ -106,7 +106,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if(quizBrain.getQuestionAnswer(questionNumber) == false){
+                if(quizBrain.getQuestionAnswer() == false){
                   print('got it right');
                 } else {
                   print('got wrong');
@@ -118,7 +118,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.red,
                     ),
                   );
-                  questionNumber += 1;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
