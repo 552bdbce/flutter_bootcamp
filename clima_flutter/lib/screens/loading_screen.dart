@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:clima/services/location.dart';
 import 'package:clima/services/networking.dart';
+import 'location_screen.dart';
 
 
 const apiKey = '2008d21525e04aea2aabc5e141f5eda1';
@@ -31,6 +32,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
     longitude = location.longitude;
     NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey');
     var weatherData = await networkHelper.getData();
+    Navigator.push(context, MaterialPageRoute(builder: (context){
+      return LocationScreen();
+    }));
 
   }
   void somethingThatExpectsLessThan10(int n){
