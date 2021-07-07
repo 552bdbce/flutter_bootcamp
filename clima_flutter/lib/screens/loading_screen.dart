@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:clima/services/location.dart';
-import 'package:clima/services/networking.dart';
+import 'package:clima/services/weather.dart';
 import 'location_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-
-const apiKey = '2008d21525e04aea2aabc5e141f5eda1';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -15,7 +11,6 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-
   double latitude;
   double longitude;
 
@@ -27,19 +22,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocationData() async {
-    Location location = Location();
-    await location.getCurrentLocation();
-    NetworkHelper networkHelper = NetworkHelper('https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$apiKey&units=metric');
-    var weatherData = await networkHelper.getData();
-    Navigator.push(context, MaterialPageRoute(builder: (context){
+    var weatherData = await WeatherModel().getLocationWeatther();
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
       return LocationScreen(
         locationWeather: weatherData,
       );
     }));
-
   }
-  void somethingThatExpectsLessThan10(int n){
-    if (n>10){
+
+  void somethingThatExpectsLessThan10(int n) {
+    if (n > 10) {
       throw 'exception';
     }
   }
@@ -53,7 +45,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
           size: 100.0,
         ),
       ),
-
     );
   }
 }
